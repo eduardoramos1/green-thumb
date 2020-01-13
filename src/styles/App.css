@@ -1,10 +1,11 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700,800&display=swap");
 
 :root {
 	--bg-color: #f2f2f2;
 	--dark-green: #15573f;
-  --green: #7baf9e;
-  --coral: #FD9872;
+	--green: #7baf9e;
+	--coral: #fd9872;
+	--dark: #0c261c;
 }
 
 * {
@@ -13,6 +14,91 @@
 	box-sizing: border-box;
 }
 
-html {
+html,
+body {
 	font-family: "Montserrat", sans-serif;
+	background-color: var(--bg-color);
+	min-height: 100vh;
+	overflow-x: hidden;
+}
+
+.App {
+	width: 100%;
+	max-width: 1128px;
+	margin: 0 auto;
+}
+
+/* logo */
+
+header {
+	width: 208px;
+	margin: 62px 10px;
+}
+
+/* Home Content */
+
+.home-wrapper {
+	display: flex;
+	grid-template-columns: 433px 779px;
+}
+
+.home-page-title {
+	text-align: center;
+	font-size: 66px;
+	color: var(--dark);
+	font-weight: 800;
+	width: 433px;
+	text-align: left;
+}
+
+.home-image-mobile {
+	width: 334px;
+	margin: 36px auto 0 auto;
+	display: none;
+}
+
+.home-image {
+	width: 779px;
+	margin-top: -100px;
+}
+
+div.desktop-left {
+	justify-content: left;
+}
+
+/* buttons */
+
+a {
+	text-decoration: none;
+	cursor: url(./../assets/illustrations/maozinha.png), auto;
+}
+
+.btn {
+	width: 174px;
+	padding: 14px 22px;
+	display: flex;
+	align-items: center;
+	background-color: var(--dark-green);
+	color: white;
+	border-radius: 28px;
+	transition: 200ms linear;
+}
+
+.btn:hover {
+	background-color: var(--green);
+}
+
+.btn-start {
+	margin-top: 35px;
+}
+
+.btn-img {
+	margin-right: 14px;
+}
+
+/* Utilities Classes */
+
+.flex-item-center {
+	display: flex;
+	justify-content: center;
 }
