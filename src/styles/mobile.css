@@ -1,7 +1,21 @@
-@media (max-width: 700px) {
+@media (max-width: 900px) {
 	/* header */
+	.desktop-vertical-header {
+		all: unset;
+		display: flex;
+		justify-content: center;
+		margin: 24px 10px;
+	}
+
+	.vertical-line {
+		display: none;
+	}
+
 	header {
 		width: 100%;
+		display: flex;
+		justify-content: center;
+		margin: 24px 10px;
 	}
 
 	.logo {
@@ -33,5 +47,46 @@
 
 	.home-image {
 		display: none;
+	}
+
+	/* typography */
+	p.question {
+		font-size: 22px;
+		width: 230px;
+		font-weight: 300;
+	}
+
+	.bold-text {
+		font-weight: 300;
+	}
+
+	/* cards */
+	.card {
+		width: 265px;
+		height: 74px;
+		flex-direction: row;
+		margin: 0;
+		margin-bottom: 20px;
+	}
+
+	.card-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+		margin-top: 31px;
+	}
+
+	.card img {
+		width: 42px;
+	}
+
+	/* buttons */
+	.button-group {
+		height: 161px;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+		margin: 0;
 	}
 }

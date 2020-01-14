@@ -3,15 +3,21 @@ import ArrowRight from "./../../assets/icons/white/arrow-right.svg";
 import illustrationHomeMobile from "./../../assets/illustrations/illustration-home-mobile.png";
 import illustrationHome from "./../../assets/illustrations/illustration-home.png";
 
-const HomePage = () => {
+const HomePage = ({ changeStep }) => {
 	return (
 		<div className="home-wrapper">
 			<div>
 				<h1 className="home-page-title">Find your next green friend</h1>
 				<div className="flex-item-center desktop-left">
-					<a href="#!" className="btn btn-start">
+					<a
+						href="#!"
+						className="btn btn-start"
+						onClick={() => {
+							changeStep(2);
+						}}
+					>
 						<img src={ArrowRight} alt="arrow-right" className="btn-img" />
-						<span className="btn-text">start quizz</span>
+						<span>start quizz</span>
 					</a>
 				</div>
 			</div>
