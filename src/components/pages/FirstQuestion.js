@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import sun from "./../../assets/illustrations/sun.png";
 
@@ -24,6 +24,14 @@ const FirstQuestion = ({ changeStep }) => {
 	const [prevButtonActive, setPrevButtonActive] = useState(false);
 	const [nextButtonActive, setNextButtonActive] = useState(false);
 
+	const [visibility, setVisibility] = useState(false);
+
+	useEffect(() => {
+		setTimeout(() => {
+			setVisibility(true);
+		}, 300);
+	}, []);
+
 	const setAnswer = func => {
 		setFirstQuestion(false);
 		setSecondQuestion(false);
@@ -33,7 +41,13 @@ const FirstQuestion = ({ changeStep }) => {
 	};
 
 	return (
-		<div className=" flex-item-center mt-1 ">
+		<div
+			className={
+				visibility
+					? "flex-item-center mt-1 invisible appear"
+					: " flex-item-center mt-1 invisible"
+			}
+		>
 			<div className="grid-1">
 				<div className="grid-item">
 					<img src={sun} alt="sun" />

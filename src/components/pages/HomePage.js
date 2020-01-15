@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ArrowRight from "./../../assets/icons/white/arrow-right.svg";
 import illustrationHomeMobile from "./../../assets/illustrations/illustration-home-mobile.png";
 import illustrationHome from "./../../assets/illustrations/illustration-home.png";
 
 const HomePage = ({ changeStep }) => {
+	const [visibility, setVisibility] = useState(false);
+
+	useEffect(() => {
+		setTimeout(() => {
+			setVisibility(true);
+		}, 300);
+	}, []);
+
 	return (
-		<div className="home-wrapper">
+		<div
+			className={
+				visibility ? "home-wrapper invisible appear" : "home-wrapper invisible"
+			}
+		>
 			<div>
 				<h1 className="home-page-title">Find your next green friend</h1>
 				<div className="flex-item-center desktop-left">

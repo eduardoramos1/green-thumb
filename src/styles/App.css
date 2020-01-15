@@ -34,23 +34,29 @@ body {
 
 header {
 	width: 208px;
-	margin: 62px 25px;
+	margin: 62px 15px;
 	transition: all 0.3s linear;
+}
+
+.logo {
+	width: 100%;
 }
 
 .desktop-vertical-header {
 	transform: rotate(-90deg);
 	position: absolute;
 	left: 0;
-	top: 161px;
+	top: 61px;
 }
 
 .vertical-line {
 	border-right: 2px solid rgba(21, 87, 63, 0.414827);
 	height: 428px;
 	position: absolute;
-	left: 125px;
-	top: 390px;
+	left: 115px;
+	top: 280px;
+	opacity: 0;
+	transition: opacity 0.2s linear;
 }
 
 /* Home Content */
@@ -204,4 +210,14 @@ a {
 .grid-item {
 	display: flex;
 	justify-content: center;
+}
+
+/* animation */
+.invisible {
+	opacity: 0;
+	transition: opacity 0.2s linear;
+}
+
+.appear {
+	opacity: 1;
 }

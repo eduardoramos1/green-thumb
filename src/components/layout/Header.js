@@ -8,8 +8,9 @@ const Header = ({ horizontalHeader, verticalHeader }) => {
 			<header className={horizontalHeader || verticalHeader}>
 				<img src={Logo} alt="green-thumb" className="logo" />
 			</header>
-
-			{verticalHeader && <div className="vertical-line"></div>}
+			<div
+				className={verticalHeader ? "vertical-line appear" : "vertical-line"}
+			></div>
 		</React.Fragment>
 	);
 };
