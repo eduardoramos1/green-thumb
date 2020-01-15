@@ -7,6 +7,7 @@ import Header from "./components/layout/Header";
 import HomePage from "./components/pages/HomePage";
 import FirstQuestion from "./components/pages/FirstQuestion";
 import SecondQuestion from "./components/pages/SecondQuestion";
+import ThirdQuestion from "./components/pages/ThirdQuestion";
 
 function App() {
 	const [step, setStep] = useState(1);
@@ -44,6 +45,14 @@ function App() {
 					<SecondQuestion changeStep={changeStep} />
 				</div>
 			);
+		case 4:
+			return (
+				<div className="App">
+					<Header verticalHeader={verticalHeader} />
+					<ThirdQuestion changeStep={changeStep} />
+				</div>
+			);
+
 		default:
 			return "";
 	}

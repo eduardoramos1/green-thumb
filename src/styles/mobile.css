@@ -54,6 +54,7 @@
 		font-size: 22px;
 		width: 230px;
 		font-weight: 300;
+		margin: 30px auto;
 	}
 
 	.bold-text {
@@ -78,7 +79,12 @@
 	}
 
 	.card img {
-		width: 42px;
+		min-width: 42px;
+		height: 40px;
+	}
+
+	.card p {
+		min-width: 136px;
 	}
 
 	/* buttons */
