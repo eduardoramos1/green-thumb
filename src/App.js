@@ -8,6 +8,7 @@ import HomePage from "./components/pages/HomePage";
 import FirstQuestion from "./components/pages/FirstQuestion";
 import SecondQuestion from "./components/pages/SecondQuestion";
 import ThirdQuestion from "./components/pages/ThirdQuestion";
+import QuestionResults from "./components/pages/QuestionResults";
 
 function App() {
 	const [step, setStep] = useState(1);
@@ -64,6 +65,18 @@ function App() {
 					<ThirdQuestion
 						changeStep={changeStep}
 						setThirdAnswer={setThirdAnswer}
+						thirdAnswer={thirdAnswer}
+					/>
+				</div>
+			);
+
+		case 5:
+			return (
+				<div className="App">
+					<Header verticalHeader={verticalHeader} />
+					<QuestionResults
+						firstAnswer={firstAnswer}
+						secondAnswer={secondAnswer}
 						thirdAnswer={thirdAnswer}
 					/>
 				</div>
