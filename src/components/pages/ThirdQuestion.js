@@ -14,7 +14,7 @@ import rightArrowGreen from "./../../assets/icons/green/right-arrow.svg";
 import rightArrowWhite from "./../../assets/icons/white/arrow-right.svg";
 import leftArrowWhite from "./../../assets/icons/white/arrow-left.svg";
 
-const ThirdQuestion = ({ changeStep }) => {
+const ThirdQuestion = ({ changeStep, setThirdAnswer, thirdAnswer }) => {
 	const [firstQuestion, setFirstQuestion] = useState(false);
 	const [secondQuestion, setSecondQuestion] = useState(false);
 
@@ -29,11 +29,12 @@ const ThirdQuestion = ({ changeStep }) => {
 		}, 300);
 	}, []);
 
-	const setAnswer = func => {
+	const setAnswer = (activationFunc, answer) => {
 		setFirstQuestion(false);
 		setSecondQuestion(false);
 
-		return func(true);
+		setThirdAnswer(answer);
+		return activationFunc(true);
 	};
 
 	return (
@@ -63,19 +64,34 @@ const ThirdQuestion = ({ changeStep }) => {
 
 				<div className=" card-container flex-item-center">
 					<div
-						className={firstQuestion ? "card card-active" : "card"}
-						onClick={() => setAnswer(setFirstQuestion)}
+						className={
+							firstQuestion || thirdAnswer === true
+								? "card card-active"
+								: "card"
+						}
+						onClick={() => setAnswer(setFirstQuestion, true)}
 					>
-						<img src={firstQuestion ? petWhite : pet} alt="yes" />
+						<img
+							src={firstQuestion || thirdAnswer === true ? petWhite : pet}
+							alt="yes"
+						/>
 						<p className="card-text">Yes</p>
 					</div>
 
 					<div
-						className={secondQuestion ? "card card-active" : "card"}
-						onClick={() => setAnswer(setSecondQuestion)}
+						className={
+							secondQuestion || thirdAnswer === false
+								? "card card-active"
+								: "card"
+						}
+						onClick={() => setAnswer(setSecondQuestion, false)}
 					>
 						<img
-							src={secondQuestion ? noAnswerWhite : noAnswerCoral}
+							src={
+								secondQuestion || thirdAnswer === false
+									? noAnswerWhite
+									: noAnswerCoral
+							}
 							alt="no"
 						/>
 						<p>No/They don't care</p>
@@ -90,31 +106,34 @@ const ThirdQuestion = ({ changeStep }) => {
 							setPrevButtonActive(true);
 						}}
 						onMouseOut={() => setPrevButtonActive(false)}
-						onClick={() => changeStep(1)}
+						onClick={() => changeStep(3)}
 					>
 						<img
 							src={prevButtonActive ? leftArrowWhite : leftArrowGreen}
 							alt="left-arrow"
 							className="btn-img"
 						/>{" "}
-						home
+						previous
 					</a>
-					<a
-						href="#!"
-						className="btn ghost"
-						onMouseOver={() => {
-							setNextButtonActive(true);
-						}}
-						onMouseOut={() => setNextButtonActive(false)}
-						onClick={() => changeStep(3)}
-					>
-						<img
-							src={nextButtonActive ? rightArrowWhite : rightArrowGreen}
-							alt="right-arrow"
-							className="btn-img"
-						/>{" "}
-						next
-					</a>
+
+					{thirdAnswer !== null && (
+						<a
+							href="#!"
+							className="btn ghost"
+							onMouseOver={() => {
+								setNextButtonActive(true);
+							}}
+							onMouseOut={() => setNextButtonActive(false)}
+							onClick={() => changeStep(5)}
+						>
+							<img
+								src={nextButtonActive ? rightArrowWhite : rightArrowGreen}
+								alt="right-arrow"
+								className="btn-img"
+							/>{" "}
+							next
+						</a>
+					)}
 				</div>
 			</div>
 		</div>

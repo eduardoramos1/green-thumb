@@ -12,6 +12,10 @@ import ThirdQuestion from "./components/pages/ThirdQuestion";
 function App() {
 	const [step, setStep] = useState(1);
 
+	const [firstAnswer, setFirstAnswer] = useState(null);
+	const [secondAnswer, setSecondAnswer] = useState(null);
+	const [thirdAnswer, setThirdAnswer] = useState(null);
+
 	const horizontalHeader = "flex-item-center";
 	const verticalHeader = "desktop-vertical-header";
 
@@ -35,21 +39,33 @@ function App() {
 			return (
 				<div className="App">
 					<Header verticalHeader={verticalHeader} />
-					<FirstQuestion changeStep={changeStep} />
+					<FirstQuestion
+						changeStep={changeStep}
+						setFirstAnswer={setFirstAnswer}
+						firstAnswer={firstAnswer}
+					/>
 				</div>
 			);
 		case 3:
 			return (
 				<div className="App">
 					<Header verticalHeader={verticalHeader} />
-					<SecondQuestion changeStep={changeStep} />
+					<SecondQuestion
+						changeStep={changeStep}
+						setSecondAnswer={setSecondAnswer}
+						secondAnswer={secondAnswer}
+					/>
 				</div>
 			);
 		case 4:
 			return (
 				<div className="App">
 					<Header verticalHeader={verticalHeader} />
-					<ThirdQuestion changeStep={changeStep} />
+					<ThirdQuestion
+						changeStep={changeStep}
+						setThirdAnswer={setThirdAnswer}
+						thirdAnswer={thirdAnswer}
+					/>
 				</div>
 			);
 

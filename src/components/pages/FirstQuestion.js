@@ -16,7 +16,7 @@ import rightArrowGreen from "./../../assets/icons/green/right-arrow.svg";
 import rightArrowWhite from "./../../assets/icons/white/arrow-right.svg";
 import leftArrowWhite from "./../../assets/icons/white/arrow-left.svg";
 
-const FirstQuestion = ({ changeStep }) => {
+const FirstQuestion = ({ changeStep, setFirstAnswer, firstAnswer }) => {
 	const [firstQuestion, setFirstQuestion] = useState(false);
 	const [secondQuestion, setSecondQuestion] = useState(false);
 	const [thirdQuestion, setThirdQuestion] = useState(false);
@@ -32,12 +32,13 @@ const FirstQuestion = ({ changeStep }) => {
 		}, 300);
 	}, []);
 
-	const setAnswer = func => {
+	const setAnswer = (activationFunc, answer) => {
 		setFirstQuestion(false);
 		setSecondQuestion(false);
 		setThirdQuestion(false);
 
-		return func(true);
+		setFirstAnswer(answer);
+		return activationFunc(true);
 	};
 
 	return (
@@ -61,31 +62,55 @@ const FirstQuestion = ({ changeStep }) => {
 
 				<div className=" card-container flex-item-center">
 					<div
-						className={firstQuestion ? "card card-active" : "card"}
-						onClick={() => setAnswer(setFirstQuestion)}
+						className={
+							firstQuestion || firstAnswer === "high"
+								? "card card-active"
+								: "card"
+						}
+						onClick={() => setAnswer(setFirstQuestion, "high")}
 					>
 						<img
-							src={firstQuestion ? highSunWhite : highSunCoral}
+							src={
+								firstQuestion || firstAnswer === "high"
+									? highSunWhite
+									: highSunCoral
+							}
 							alt="high sun"
 						/>
 						<p>High sunlight</p>
 					</div>
 					<div
-						className={secondQuestion ? "card card-active" : "card"}
-						onClick={() => setAnswer(setSecondQuestion)}
+						className={
+							secondQuestion || firstAnswer === "low"
+								? "card card-active"
+								: "card"
+						}
+						onClick={() => setAnswer(setSecondQuestion, "low")}
 					>
 						<img
-							src={secondQuestion ? lowSunWhite : lowSunCoral}
+							src={
+								secondQuestion || firstAnswer === "low"
+									? lowSunWhite
+									: lowSunCoral
+							}
 							alt="low sun"
 						/>
 						<p>Low sunlight</p>
 					</div>
 					<div
-						className={thirdQuestion ? "card card-active" : "card"}
-						onClick={() => setAnswer(setThirdQuestion)}
+						className={
+							thirdQuestion || firstAnswer === "no"
+								? "card card-active"
+								: "card"
+						}
+						onClick={() => setAnswer(setThirdQuestion, "no")}
 					>
 						<img
-							src={thirdQuestion ? noAnswerWhite : noAnswerCoral}
+							src={
+								thirdQuestion || firstAnswer === "no"
+									? noAnswerWhite
+									: noAnswerCoral
+							}
 							alt="no answer"
 						/>
 						<p>No sunlight</p>
@@ -109,22 +134,25 @@ const FirstQuestion = ({ changeStep }) => {
 						/>{" "}
 						home
 					</a>
-					<a
-						href="#!"
-						className="btn ghost"
-						onMouseOver={() => {
-							setNextButtonActive(true);
-						}}
-						onMouseOut={() => setNextButtonActive(false)}
-						onClick={() => changeStep(3)}
-					>
-						<img
-							src={nextButtonActive ? rightArrowWhite : rightArrowGreen}
-							alt="right-arrow"
-							className="btn-img"
-						/>{" "}
-						next
-					</a>
+
+					{firstAnswer !== null && (
+						<a
+							href="#!"
+							className="btn ghost"
+							onMouseOver={() => {
+								setNextButtonActive(true);
+							}}
+							onMouseOut={() => setNextButtonActive(false)}
+							onClick={() => changeStep(3)}
+						>
+							<img
+								src={nextButtonActive ? rightArrowWhite : rightArrowGreen}
+								alt="right-arrow"
+								className="btn-img"
+							/>{" "}
+							next
+						</a>
+					)}
 				</div>
 			</div>
 		</div>
