@@ -105,6 +105,40 @@
 		width: 146px;
 	}
 
+	/* purchase page */
+	.purchased-page-grid {
+		grid-template-columns: 1fr;
+		justify-content: center;
+		width: 100%;
+		margin: 0;
+	}
+
+	.purchased-item {
+		justify-content: center;
+		align-items: center;
+	}
+
+	.purchased-item-details > div {
+		justify-content: flex-start;
+		width: 320px;
+	}
+
+	.purchased-item-title {
+		font-size: 35px;
+		width: 265px;
+		color: var(--dark);
+	}
+
+	.send-email-form h2 {
+		margin-top: 20px;
+		color: var(--dark);
+		font-size: 30px;
+	}
+
+	.send-email-form .btn {
+		width: 100%;
+	}
+
 	/* buttons */
 	.button-group {
 		height: 161px;

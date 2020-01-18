@@ -12,7 +12,13 @@ import lowSun from "./../../assets/icons/grey/low-sun.svg";
 import twoDrops from "./../../assets/icons/grey/two-drops.svg";
 import threeDrops from "./../../assets/icons/grey/three-drops.svg";
 
-const QuestionResults = ({ firstAnswer, secondAnswer, thirdAnswer }) => {
+const QuestionResults = ({
+	firstAnswer,
+	secondAnswer,
+	thirdAnswer,
+	setPurchasedItem,
+	changeStep
+}) => {
 	const [visibility, setVisibility] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const [plants, setPlants] = useState([]);
@@ -73,6 +79,8 @@ const QuestionResults = ({ firstAnswer, secondAnswer, thirdAnswer }) => {
 									key={plant.id}
 									plant={plant}
 									iconsAdress={iconsAdress}
+									setPurchasedItem={setPurchasedItem}
+									changeStep={changeStep}
 								/>
 						  ))
 						: "Sem resultados para sua pesquisa"}

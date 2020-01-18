@@ -9,6 +9,7 @@ import FirstQuestion from "./components/pages/FirstQuestion";
 import SecondQuestion from "./components/pages/SecondQuestion";
 import ThirdQuestion from "./components/pages/ThirdQuestion";
 import QuestionResults from "./components/pages/QuestionResults";
+import PurchasePage from "./components/pages/PurchasePage";
 
 function App() {
 	const [step, setStep] = useState(1);
@@ -16,6 +17,8 @@ function App() {
 	const [firstAnswer, setFirstAnswer] = useState(null);
 	const [secondAnswer, setSecondAnswer] = useState(null);
 	const [thirdAnswer, setThirdAnswer] = useState(null);
+
+	const [purchasedItem, setPurchasedItem] = useState(null);
 
 	const horizontalHeader = "flex-item-center";
 	const verticalHeader = "desktop-vertical-header";
@@ -78,7 +81,17 @@ function App() {
 						firstAnswer={firstAnswer}
 						secondAnswer={secondAnswer}
 						thirdAnswer={thirdAnswer}
+						changeStep={changeStep}
+						setPurchasedItem={setPurchasedItem}
 					/>
+				</div>
+			);
+
+		case 6:
+			return (
+				<div className="App">
+					<Header verticalHeader={verticalHeader} />
+					<PurchasePage purchasedItem={purchasedItem} />
 				</div>
 			);
 

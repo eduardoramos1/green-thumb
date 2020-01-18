@@ -1,6 +1,12 @@
 import React from "react";
 
-const ResultItem = ({ plant, iconsAdress }) => {
+const ResultItem = ({ plant, iconsAdress, setPurchasedItem, changeStep }) => {
+	const onBuy = ev => {
+		ev.preventDefault();
+		setPurchasedItem(plant);
+		changeStep(6);
+	};
+
 	return (
 		<div className="grid-results-item">
 			<img src={plant.url} alt={plant.name} height="170px" />
@@ -14,7 +20,7 @@ const ResultItem = ({ plant, iconsAdress }) => {
 					<img src={iconsAdress[plant.water]} alt={plant.water} />
 				</div>
 			</div>
-			<a href="#!" className="btn ghost">
+			<a href="#!" className="btn ghost" onClick={onBuy}>
 				{" "}
 				Buy now
 			</a>
