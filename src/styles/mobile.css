@@ -129,6 +129,9 @@
 		color: var(--dark);
 	}
 
+	.send-email-form {
+		width: 100%;
+	}
 	.send-email-form h2 {
 		margin-top: 20px;
 		color: var(--dark);

@@ -242,6 +242,7 @@ p.description {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	min-height: 495px;
 }
 
 .send-email-form h2 {
@@ -283,7 +284,15 @@ p.description {
 	outline: none;
 	border: none;
 	padding: 12px;
-	margin-bottom: 20px;
+}
+
+.alert-message {
+	font-size: 12px;
+	color: #f71d1d;
+}
+
+.input-error {
+	border: 1px solid #f71d1d;
 }
 
 .send-email-form .btn {
@@ -292,9 +301,19 @@ p.description {
 	font-weight: 300;
 }
 
+/* finished */
+
+.finished-purchase-detail {
+	text-align: center;
+}
+
 /* margins */
 .mt-1 {
 	margin-top: 61px;
+}
+
+.mb-1 {
+	margin-bottom: 20px;
 }
 
 /* buttons */
